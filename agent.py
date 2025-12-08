@@ -186,7 +186,10 @@ class BioAgent:
                 
                 val_est = self.value_net(s_new_soft).item()
                 
-                act_name = ["Up", "Down", "Left", "Right"][a]
+                if a < 4:
+                    act_name = ["Up", "Down", "Left", "Right"][a]
+                else:
+                    act_name = f"Action {a}"
                 print(f"  Thought: Action '{act_name}' -> Pred Value {val_est:.2f}")
                 
                 if val_est > best_val:
