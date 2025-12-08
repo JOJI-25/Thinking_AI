@@ -36,7 +36,7 @@ class Config:
     # --------------------------
     # Architecture
     # --------------------------
-    INPUT_DIM = 10          # Vocab Size (Small)
+    INPUT_DIM = 4           # Vocab Size (Small)
     HIDDEN_DIM = 64         # Number of spiking neurons
     EMBED_DIM = 32          # Dimension of sensory embedding
     ACTION_DIM = 10         # Action matches Vocab

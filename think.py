@@ -36,7 +36,7 @@ def train():
     env = MemoryGridWorld(size=5) # Phase 2 Env
     agent = BioAgent()
     
-    num_episodes = 500 # More eps for memory task
+    num_episodes = 3000 # More eps for memory task
     rewards_history = []
     
     
