@@ -23,24 +23,24 @@ This diagram illustrates how sensory spikes compete for consciousness (Global Wo
 ```mermaid
 graph TD
     subgraph Environment
-    Input[Sensory Input<br>(Grid/Text)] -->|Poisson Spikes| Encoder
+    Input["Sensory Input\n(Grid/Text)"] -->|Poisson Spikes| Encoder
     end
 
     subgraph "BioAgent (The Brain)"
-    Encoder -->|Spike Trains| SNN[Spiking Neural Network<br>(Sensory Cortex)]
+    Encoder -->|Spike Trains| SNN["Spiking Neural Network\n(Sensory Cortex)"]
     
     %% Global Workspace Theory
-    SNN -->|Feedforward| GW[Global Workspace<br>(Conscious Bottleneck)]
+    SNN -->|Feedforward| GW["Global Workspace\n(Conscious Bottleneck)"]
     GW -->|Broadcast (Feedback)| SNN
-    GW -->|Broadcast (Feedback)| WM[World Model<br>(Hippocampus/Frontal)]
+    GW -->|Broadcast (Feedback)| WM["World Model\n(Hippocampus/Frontal)"]
     
     %% Action Loops
-    GW -->|High Confidence| Motor[Motor Cortex<br>(Action Execution)]
+    GW -->|High Confidence| Motor["Motor Cortex\n(Action Execution)"]
     
     %% System 2 Loop
-    GW -- Low Confidence --> Inhibit[🛑 Inhibition System]
+    GW -- Low Confidence --> Inhibit["🛑 Inhibition System"]
     Inhibit --> WM
-    WM -->|Simulated State| Evaluator[Value Network<br>(Amygdala)]
+    WM -->|Simulated State| Evaluator["Value Network\n(Amygdala)"]
     Evaluator -->|Good Outcome?| Motor
     end
     
@@ -49,6 +49,7 @@ graph TD
     style GW fill:#f9f,stroke:#333,stroke-width:2px
     style Inhibit fill:#ff9999,stroke:#333,stroke-width:2px
 ```
+
 
 ### 2. The "System 2" Deliberation Logic
 
