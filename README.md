@@ -26,23 +26,23 @@ The agent is composed of distinct modular components that mimic the human brain'
 ```mermaid
 graph TD
     subgraph PERCEPTION
-        Input[Sensory Input\n(Grid/Text)] --> Encoder[Encoder Module]
+        Input["Sensory Input\n(Grid/Text)"] --> Encoder["Encoder Module"]
     end
 
     subgraph BRAIN_CORE [Spiking Core]
-        Encoder --> LIF[LIF Spiking Neurons]
-        LIF --> GWT[Global Workspace\n(Consciousness)]
+        Encoder --> LIF["LIF Spiking Neurons"]
+        LIF --> GWT["Global Workspace\n(Consciousness)"]
         GWT -- Broadcast --> LIF
     end
 
     subgraph MEMORY_&_PLANNING
-        LIF --> Predictor[Transformer World Model]
-        Predictor -- Simulation --> Value[Value Network\n(Critic)]
-        LIF --> Policy[Policy Network\n(Actor)]
+        LIF --> Predictor["Transformer World Model"]
+        Predictor -- Simulation --> Value["Value Network\n(Critic)"]
+        LIF --> Policy["Policy Network\n(Actor)"]
     end
 
     subgraph ACTION
-        Policy --> Motor[Action Output]
+        Policy --> Motor["Action Output"]
         Motor --> Env[Environment]
     end
 
@@ -66,9 +66,9 @@ Unlike standard agents that map `State -> Action` instantly (System 1), **Thinki
 ```mermaid
 sequenceDiagram
     participant Env as Environment
-    participant S1 as System 1 (Fast)
-    participant S2 as System 2 (Slow)
-    participant WM as World Model
+    participant S1 as "System 1 (Fast)"
+    participant S2 as "System 2 (Slow)"
+    participant WM as "World Model"
     
     Env->>S1: Observation (t)
     S1->>S1: Generate Intuitive Action
