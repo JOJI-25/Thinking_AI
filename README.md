@@ -50,32 +50,31 @@ graph TD
     style Inhibit fill:#ff9999,stroke:#333,stroke-width:2px
 ```
 
-
 ### 2. The "System 2" Deliberation Logic
 
 The core innovation is the algorithm's ability to "imagine" the future when it is uncertain.
 
 ```mermaid
 flowchart TD
-    Start(State S_t) --> FastNet[System 1: Fast Policy]
+    Start["State S_t"] --> FastNet[System 1: Fast Policy]
     FastNet -->|Propose Action A| Check{Uncertainty > Threshold?}
     
     %% Path 1: Reflexive Action
-    Check -- No (Confident) --> Execute[Execute Action A]
+    Check -- "No (Confident)" --> Execute[Execute Action A]
     
     %% Path 2: Deliberative Action
-    Check -- Yes (Confused) --> Pause[🛑 Pause Motor Output]
+    Check -- "Yes (Confused)" --> Pause["🛑 Pause Motor Output"]
     Pause --> Sim[World Model Simulation]
     
     subgraph "Inner Monologue / Simulation"
     Sim -->|Predict S_t+1| Value{Is State Safe?}
-    Value -- Yes --> Confirm[Confirm Action A]
-    Value -- No --> Rollout[Tree Search / Rollout]
+    Value -- "Yes" --> Confirm[Confirm Action A]
+    Value -- "No" --> Rollout[Tree Search / Rollout]
     Rollout -->|Select Best A'| Confirm
     end
     
     Confirm --> Execute
-    Execute --> Next(State S_t+1)
+    Execute --> Next["State S_{t+1}"]
 ```
 
 -----
